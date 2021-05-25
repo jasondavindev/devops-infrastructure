@@ -21,11 +21,11 @@ resource "aws_db_instance" "db" {
   instance_class         = "db.t2.micro"
   skip_final_snapshot    = true
 
-  name                   = var.name
+  name                   = var.identifier_name
   username               = var.username
   password               = var.password
   port                   = var.port
-  identifier             = var.name
+  identifier             = var.identifier_name
   allocated_storage      = var.storage_size
 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]

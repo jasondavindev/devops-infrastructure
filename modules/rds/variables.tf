@@ -10,10 +10,10 @@ variable "password" {
   description = "Database password"
 }
 
-variable "name" {
+variable "identifier_name" {
   type        = string
-  default     = ""
   description = "Database name"
+  default     = "devops-database"
 }
 
 variable "storage_size" {
