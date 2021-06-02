@@ -65,7 +65,7 @@ jobs:
       - name: Terraform apply
         id: terraform-apply
         run: |
-          terraform apply
+          terraform apply -auto-approve
 
   manual_destroy:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -94,7 +94,7 @@ jobs:
         run: |
           terraform workspace select prod
 
-      - name: Terraform apply
-        id: terraform-apply
+      - name: Terraform destroy
+        id: terraform-destroy
         run: |
-          terraform apply
+          terraform destroy -auto-approve
