@@ -1,31 +1,27 @@
-variable "rds_public_subnets" {
-  type        = string
-}
-
-variable "rds_username" {
+variable "RDS_USERNAME" {
   type        = string
   default     = ""
 }
 
-variable "rds_password" {
+variable "RDS_PASSWORD" {
   type        = string
   description = "Must be greater than 8 characters"
 }
 
-variable "rds_port" {
+variable "RDS_PORT" {
   type        = number
   default     = 5432
 }
 
-variable "rds_db_name" {
+variable "RDS_DB_NAME" {
   type        = string
   default     = ""
 }
 
-variable "vpc_id" {
+variable "DOCKER_IMAGE" {
   type = string
 }
 
-variable "docker_image" {
-  type = string
+variable "REGION" {
+  default = "us-east-1"
 }
