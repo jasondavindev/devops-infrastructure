@@ -36,7 +36,7 @@ jobs:
           terraform plan
 
   manual_deploy:
-    if: ${{ github.ref == 'main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     container: hashicorp/terraform:0.13.7 # your docker image
     needs: plan
@@ -68,7 +68,7 @@ jobs:
           terraform apply
 
   manual_destroy:
-    if: ${{ github.ref == 'main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     container: hashicorp/terraform:0.13.7 # your docker image
     needs: manual_deploy
