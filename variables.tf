@@ -26,3 +26,8 @@ variable "DOCKER_IMAGE" {
 variable "REGION" {
   default = "us-east-1"
 }
+
+variable "RDS_DB_NAME" {
+  type        = string
+  default     = "devopsdb"
+}

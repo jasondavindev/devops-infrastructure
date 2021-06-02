@@ -28,6 +28,7 @@ module "rds" {
   username         = var.RDS_USERNAME
   password         = var.RDS_PASSWORD
   port             = var.RDS_PORT
+  identifier_name  = var.RDS_DB_NAME
   vpc_id           = local.vpc_id
   public_subnets   = [local.subnet_ids[2], local.subnet_ids[3]]
 }

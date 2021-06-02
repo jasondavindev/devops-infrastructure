@@ -13,7 +13,6 @@ variable "password" {
 variable "identifier_name" {
   type        = string
   description = "Database name"
-  default     = "devops-database"
 }
 
 variable "storage_size" {
