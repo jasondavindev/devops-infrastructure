@@ -28,7 +28,7 @@ jobs:
       - name: Terraform switch workspaces
         id: terraform-workspaces
         run: |
-          terraform workspace select prod
+          terraform workspace select staging
 
       - name: Terraform plan
         id: terraform-plan
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     container: hashicorp/terraform:0.13.7 # your docker image
     needs: plan
-    environment: production
+    environment: staging
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2.3.4
@@ -60,7 +60,7 @@ jobs:
       - name: Terraform switch workspaces
         id: terraform-workspaces
         run: |
-          terraform workspace select prod
+          terraform workspace select staging
 
       - name: Terraform apply
         id: terraform-apply
@@ -68,11 +68,10 @@ jobs:
           terraform apply -auto-approve
 
   manual_destroy:
-    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     container: hashicorp/terraform:0.13.7 # your docker image
     needs: manual_deploy
-    environment: production
+    environment: staging
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2.3.4
@@ -92,7 +91,7 @@ jobs:
       - name: Terraform switch workspaces
         id: terraform-workspaces
         run: |
-          terraform workspace select prod
+          terraform workspace select staging
 
       - name: Terraform destroy
         id: terraform-destroy
